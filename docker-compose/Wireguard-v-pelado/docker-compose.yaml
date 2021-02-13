@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+    wireguard:
+        image: linuxserver/wireguard
+        container_name: wireguard
+        cap_add:
+            - NET_ADMIN
+            - SYS_MODULE
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=America/Bogota
+            - SERVERURL=3.17.72.131
+            - SERVERPORT=51820
+            - PEERS=2
+            - PEERDNS=auto
+        volumes:
+            - /root/wireguard:/config
+            - /lib/modules:/lib/modules
+            - /usr/src:/usr/src
+        ports:
+            - 51820:51820/udp
+        sysctls:
+            - net.ipv4.conf.all.src_valid_mark=1
+        restart: unless-stopped
