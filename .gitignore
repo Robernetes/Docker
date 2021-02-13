@@ -1,3 +1,4 @@
-.ctr
+*.ctr
+*.key
 .env
 
