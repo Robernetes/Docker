@@ -1,0 +1,22 @@
+version: "3.4"
+services:
+    posteio:
+        image: analogic/poste.io
+        restart: always
+        network_mode: "host"
+        expose:
+            - "25"
+            - "80"
+            - "443"
+            - "110"
+            - "143"
+            - "465"
+            - "587"
+            - "993"
+            - "995"
+            - "4190"
+        volumes:
+            - /root/mail-data/:/data
+        environment:
+            - HTTPS=ON
+            - DISABLE_CLAMAV=TRUE
