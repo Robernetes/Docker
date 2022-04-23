@@ -6,10 +6,10 @@ services:
         volumes:
             - "vol_01:/var/lib/mysql"
         environment:
-            MYSQL_ROOT_PASSWORD: password-root 
-            MYSQL_DATABASE: name-db
-            MYSQL_USER: user-name
-            MYSQL_PASSWORD: password-user
+            MYSQL_ROOT_PASSWORD: rootpass
+            MYSQL_DATABASE: test
+            MYSQL_USER: raagus
+            MYSQL_PASSWORD: userpass
         ports:
             - "3307:3306"
 volumes:
